@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://qrxmn08gi1e4"]
 
-[ext_resource type="Script" uid="uid://deoyhxk3nrdbm" path="res://menus/main/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" path="res://menus/main/main_menu.gd" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="2_7vrkn"]
 [ext_resource type="AudioStream" uid="uid://bfx1j0rdq0h5d" path="res://sounds/piano.ogg" id="2_gma2u"]
 [ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://map/tile_map_layer.tscn" id="2_jinmx"]
@@ -33,7 +33,7 @@ tile_map_data = PackedByteArray("AAD5/+r/AAAAAAAAAAD5/+v/AAAAAAAAAAD5/+z/AAAAAAA
 [node name="play" type="Button" parent="."]
 offset_left = 81.0
 offset_top = 57.0
-offset_right = 556.9054
+offset_right = 556.905
 offset_bottom = 174.0
 
 [node name="Label" type="Label" parent="play"]
@@ -48,7 +48,7 @@ label_settings = SubResource("LabelSettings_jix8l")
 [node name="controls" type="Button" parent="."]
 offset_left = 81.0
 offset_top = 192.0
-offset_right = 556.9054
+offset_right = 556.905
 offset_bottom = 309.0
 
 [node name="Label" type="Label" parent="controls"]
@@ -63,7 +63,7 @@ label_settings = SubResource("LabelSettings_jix8l")
 [node name="credits" type="Button" parent="."]
 offset_left = 77.0
 offset_top = 327.0
-offset_right = 552.9054
+offset_right = 552.905
 offset_bottom = 444.0
 
 [node name="Label" type="Label" parent="credits"]
@@ -78,7 +78,7 @@ label_settings = SubResource("LabelSettings_jix8l")
 [node name="quit" type="Button" parent="credits"]
 layout_mode = 0
 offset_top = 135.0
-offset_right = 475.9054
+offset_right = 475.905
 offset_bottom = 252.0
 
 [node name="Label" type="Label" parent="credits/quit"]
@@ -91,8 +91,8 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_jix8l")
 
 [node name="StickmanSpritesheetGun2" type="Sprite2D" parent="."]
-position = Vector2(856.8304, 349.25)
-scale = Vector2(21.696428, 21.696428)
+position = Vector2(856.83, 349.25)
+scale = Vector2(21.6964, 21.6964)
 texture = ExtResource("3_fu7sn")
 
 [node name="Label" type="Label" parent="."]

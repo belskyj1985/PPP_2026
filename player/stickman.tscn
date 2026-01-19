@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dlt3uqsdvgvsi"]
 
-[ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_kr24v"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_kr24v"]
 [ext_resource type="AudioStream" uid="uid://bd0t1s1xurmka" path="res://sounds/shoot.ogg" id="2_c1y58"]
 [ext_resource type="AudioStream" uid="uid://bvgrb55wqhq8a" path="res://sounds/step.wav" id="2_kr24v"]
 [ext_resource type="AudioStream" uid="uid://u5485djgb1xi" path="res://sounds/ouch.wav" id="2_v5tpi"]
@@ -102,7 +102,7 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_heo7t")
-debug_color = Color(0, 0.6, 0.69803923, 0.14509805)
+debug_color = Color(0, 0.6, 0.698039, 0.145098)
 
 [node name="invulnerablility" type="Timer" parent="."]
 one_shot = true
@@ -111,7 +111,7 @@ one_shot = true
 one_shot = true
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(0, -7.0000005)
+position = Vector2(0, -7)
 scale = Vector2(3, 3)
 texture = ExtResource("3_kr24v")
 offset = Vector2(5, 0)
