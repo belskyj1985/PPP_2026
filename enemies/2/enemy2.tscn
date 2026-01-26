@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmst7uq7pomeu"]
+[gd_scene format=3 uid="uid://bmst7uq7pomeu"]
 
 [ext_resource type="Script" uid="uid://cxrhrjhsy8p7t" path="res://enemies/2/enemy_2.gd" id="1_jugo2"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_b4vra"]
@@ -9,27 +9,27 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
 radius = 17.464249
 
-[node name="enemy2" type="CharacterBody2D"]
+[node name="enemy2" type="CharacterBody2D" unique_id=1314246216]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_jugo2")
 
-[node name="Enemy" type="AudioStreamPlayer" parent="."]
+[node name="Enemy" type="AudioStreamPlayer" parent="." unique_id=1261757071]
 stream = ExtResource("2_b4vra")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=681140677]
 shape = SubResource("RectangleShape2D_4gyqm")
 debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
 
-[node name="bullet_detector" type="Area2D" parent="."]
+[node name="bullet_detector" type="Area2D" parent="." unique_id=166684654]
 collision_layer = 0
 collision_mask = 2
 
-[node name="detector_col" type="CollisionShape2D" parent="bullet_detector"]
+[node name="detector_col" type="CollisionShape2D" parent="bullet_detector" unique_id=586024470]
 shape = SubResource("CircleShape2D_qi2p4")
 debug_color = Color(0.9098039, 0, 0.7294118, 0.25882354)
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=790112003]
 scale = Vector2(2.21875, 2.21875)
 texture = ExtResource("2_jugo2")
 

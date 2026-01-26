@@ -5,10 +5,14 @@ extends CharacterBody2D
 var mod = 1.0
 var acc = 20
 @onready var og_color = $AnimatedSprite2D.get_instance_shader_parameter("shader_parameter/new_color")
+
 func _ready() -> void:
+	Gamestate.enemies.append(self) #register that john
+	add_to_group("enemies")
 	health *= mod
 	dmg *= mod
 	spd *= mod
+
 
 func move():
 	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
@@ -21,9 +25,11 @@ func damage():
 	self.health -= Gamestate.player.dmg
 	if health <= 0:
 		if !dead:
-			Gamestate.spawner.enemy_killed()
-			queue_free()
 			dead = true
+			Gamestate.spawner.enemy_killed()
+			Gamestate.enemies.erase(self)   # UNREGISTER
+			queue_free()
+	
 	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", Color.RED)
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", og_color)

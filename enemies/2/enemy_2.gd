@@ -7,6 +7,8 @@ var mod = 1.0
 var acc = 20
 
 func _ready() -> void:
+	Gamestate.enemies.append(self) #register that john
+	add_to_group("enemies")
 	health *= mod
 	dmg *= mod
 	spd *= mod

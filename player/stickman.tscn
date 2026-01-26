@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlt3uqsdvgvsi"]
+[gd_scene format=3 uid="uid://dlt3uqsdvgvsi"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_kr24v"]
+[ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_kr24v"]
 [ext_resource type="AudioStream" uid="uid://bd0t1s1xurmka" path="res://sounds/shoot.ogg" id="2_c1y58"]
 [ext_resource type="AudioStream" uid="uid://bvgrb55wqhq8a" path="res://sounds/step.wav" id="2_kr24v"]
 [ext_resource type="AudioStream" uid="uid://u5485djgb1xi" path="res://sounds/ouch.wav" id="2_v5tpi"]
 [ext_resource type="Texture2D" uid="uid://cusb4njw4a4o7" path="res://player/gun.png" id="3_kr24v"]
+[ext_resource type="Texture2D" uid="uid://cqsyi6gnkfpfq" path="res://red indicator png.png" id="6_atsd2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfhct"]
 load_path = "res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
@@ -73,55 +74,60 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfhct"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=935341766]
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("1_kr24v")
 
-[node name="Ouch" type="AudioStreamPlayer" parent="."]
+[node name="Ouch" type="AudioStreamPlayer" parent="." unique_id=1763571447]
 stream = ExtResource("2_v5tpi")
 
-[node name="Shoot" type="AudioStreamPlayer" parent="."]
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=896851673]
 stream = ExtResource("2_c1y58")
 volume_db = -10.0
 pitch_scale = 0.71
 
-[node name="Step" type="AudioStreamPlayer" parent="."]
+[node name="Step" type="AudioStreamPlayer" parent="." unique_id=278845138]
 stream = ExtResource("2_kr24v")
 volume_db = 6.0
 pitch_scale = 1.81
 
-[node name="shoot_timer" type="Timer" parent="."]
+[node name="shoot_timer" type="Timer" parent="." unique_id=499089450]
 one_shot = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73195520]
 position = Vector2(2, 4)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6jiok")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=555100801]
 shape = SubResource("RectangleShape2D_heo7t")
 debug_color = Color(0, 0.6, 0.698039, 0.145098)
 
-[node name="invulnerablility" type="Timer" parent="."]
+[node name="invulnerablility" type="Timer" parent="." unique_id=1399541746]
 one_shot = true
 
-[node name="dash_cooldown" type="Timer" parent="."]
+[node name="dash_cooldown" type="Timer" parent="." unique_id=1410829977]
 one_shot = true
 
-[node name="Gun" type="Sprite2D" parent="."]
+[node name="Gun" type="Sprite2D" parent="." unique_id=1063687444]
 position = Vector2(0, -7)
 scale = Vector2(3, 3)
 texture = ExtResource("3_kr24v")
 offset = Vector2(5, 0)
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="." unique_id=803908209]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=852642630]
 shape = SubResource("RectangleShape2D_xfhct")
+
+[node name="EnemyIndicator" type="Sprite2D" parent="." unique_id=67389632]
+position = Vector2(2, -44.000004)
+scale = Vector2(0.030926181, 0.030926181)
+texture = ExtResource("6_atsd2")
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
