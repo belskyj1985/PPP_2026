@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dgd1ib8tm8mio"]
+[gd_scene load_steps=9 format=3 uid="uid://dgd1ib8tm8mio"]
 
-[ext_resource type="Script" uid="uid://cmkjjlml40h62" path="res://enemies/enemy.gd" id="1_vlw6h"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_vlw6h"]
 [ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="2_8kyjj"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_gg5xc"]
 [ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
@@ -29,26 +29,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="enemy" type="CharacterBody2D" unique_id=597921510]
+[node name="enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_vlw6h")
 
-[node name="Enemy" type="AudioStreamPlayer" parent="." unique_id=1215165177]
+[node name="Enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gg5xc")
 
-[node name="collision" type="CollisionShape2D" parent="." unique_id=1275671182]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4gyqm")
-debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
+debug_color = Color(0.830558, 0.393539, 0, 0.419608)
 
-[node name="bullet_detector" parent="." unique_id=1127346519 instance=ExtResource("2_gxu15")]
+[node name="bullet_detector" parent="." instance=ExtResource("2_gxu15")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=623257954]
-position = Vector2(-1, -1.1920929e-07)
-scale = Vector2(1.2734375, 1.2734375)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1.19209e-07)
+scale = Vector2(1.27344, 1.27344)
 sprite_frames = SubResource("SpriteFrames_epg4t")
 animation = &"walk"
-frame_progress = 0.8802136
+frame_progress = 0.880214
 
 [connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
 

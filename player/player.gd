@@ -25,6 +25,9 @@ var sht_spd = 3
 @onready var shot_timer = $shoot_timer
 @onready var reticle: CompressedTexture2D = preload("res://player/ReticleResize2.png")
 @onready var indicator: Sprite2D = $EnemyIndicator
+@export var indicator_radius := 30.0
+@onready var indicator_base_scale := indicator.scale
+
 
 #state machine to execute certain functions when the player is in a matching state
 enum state_enum {
@@ -197,6 +200,17 @@ func update_enemy_indicator():
 	
 	indicator.visible = true
 	
+	# Direction from player to enemy
 	var dir = (enemy.global_position - global_position).normalized()
-	indicator.rotation = lerp_angle(indicator.rotation, dir.angle() + PI/2, 0.15)
-	indicator.position = Vector2(0, -50)
+	var dist = global_position.distance_to(enemy.global_position)
+	var scale_mult = clamp(1.3 - dist / 600.0, 0.9, 1.5)
+	indicator.scale = indicator_base_scale * scale_mult
+	# Place indicator on a circle around the player
+	indicator.position = dir * indicator_radius
+	
+	# Rotate arrow to face enemy
+	indicator.rotation = lerp_angle(
+		indicator.rotation,
+		dir.angle() + PI/2,
+		0.2
+	)
