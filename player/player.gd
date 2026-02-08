@@ -11,7 +11,7 @@ var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 50
 var sht_spd = 3
-
+var left : bool = false
 
 #define nodes on ready so they load in time
 @onready var shootSound: AudioStreamPlayer = $Shoot
@@ -57,8 +57,13 @@ func shoot():
 			var instance = proj.instantiate()
 			instance.scale = Vector2(bullet_size, bullet_size)
 			instance.dir = angle_to_mouse
-			instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
-			instance.spawnRot = angle_to_mouse
+			if left:
+				instance.spawnPos = global_position + Vector2(-60,-20)
+				instance.spawnRot = (global_position + Vector2(-60,-20) - mouse_pos).angle() - PI/2
+			else:
+				instance.spawnPos = global_position + Vector2(60,-20)
+				instance.spawnRot = (global_position + Vector2(60,-20) - mouse_pos).angle() - PI/2
+			
 			main.add_child.call_deferred(instance)
 			shot_timer.start()
 
@@ -97,11 +102,17 @@ func do_debug_col(): #displays when the player is invulnerable
 		$CollisionShape2D.debug_color = Color("CHARTREUSE", 0.41)
 var done = false
 func play_anims():
-	animator.flip_h = mouse_pos.x < global_position.x
+	left = mouse_pos.x < global_position.x
 	if input_vector != Vector2.ZERO:
-		animator.play("walk")
+		if left:
+			animator.play("walkL")
+		else:
+			animator.play("walkR")
 	else:
-		animator.play("stand")
+		if left:
+			animator.play("standL")
+		else:
+			animator.play("standR")
 	
 	if mouse_pos.x < global_position.x:
 		gun_sprite.rotation = angle_to_mouse - PI/2

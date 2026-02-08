@@ -11,6 +11,10 @@ func _ready() -> void:
 	spd *= mod
 
 func move():
+	if sign(velocity.y) != sign((Gamestate.player.global_position - global_position).y) || sign(velocity.x) != sign((Gamestate.player.global_position - global_position).x):
+		acc = 20
+	else:
+		acc = 20 / (0.0001 * (Gamestate.player.global_position - global_position).length_squared())
 	if global_position.distance_squared_to(Gamestate.player.global_position) < 100**2:
 		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
 	else:
