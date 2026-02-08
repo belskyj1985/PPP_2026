@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_kr24v"]
 [ext_resource type="AudioStream" uid="uid://bd0t1s1xurmka" path="res://sounds/shoot.ogg" id="2_c1y58"]
+[ext_resource type="Texture2D" uid="uid://b8csaac4xmr43" path="res://map/shadow.png" id="2_h08c8"]
 [ext_resource type="AudioStream" uid="uid://bvgrb55wqhq8a" path="res://sounds/step.wav" id="2_kr24v"]
 [ext_resource type="AudioStream" uid="uid://u5485djgb1xi" path="res://sounds/ouch.wav" id="2_v5tpi"]
 [ext_resource type="Texture2D" uid="uid://cusb4njw4a4o7" path="res://player/gun.png" id="3_kr24v"]
@@ -134,6 +135,12 @@ collision_mask = 8
 motion_mode = 1
 script = ExtResource("1_kr24v")
 
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1793917018]
+modulate = Color(1, 1, 1, 0.21176471)
+position = Vector2(1.6940659e-21, 45)
+scale = Vector2(0.12158205, 0.02147484)
+texture = ExtResource("2_h08c8")
+
 [node name="Ouch" type="AudioStreamPlayer" parent="." unique_id=1343163958]
 stream = ExtResource("2_v5tpi")
 
@@ -154,7 +161,7 @@ one_shot = true
 position = Vector2(2, 4)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_6jiok")
-animation = &"walkR"
+animation = &"standR"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835315690]
 shape = SubResource("RectangleShape2D_heo7t")
@@ -179,6 +186,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=840876434]
 shape = SubResource("RectangleShape2D_xfhct")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=303405414]
+position = Vector2(0, 18.5)
+scale = Vector2(1, 19.5)
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
