@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqsyi6gnkfpfq"
-path="res://.godot/imported/red indicator png.png-eaaa1a8fd2f26e26b8d1dd730bb040d8.ctex"
+uid="uid://l2mr7f8e6na8"
+path="res://.godot/imported/babyufo.png-abcd7c90121503391425112c8d8bb664.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://red indicator png.png"
-dest_files=["res://.godot/imported/red indicator png.png-eaaa1a8fd2f26e26b8d1dd730bb040d8.ctex"]
+source_file="res://enemies/2/babyufo.png"
+dest_files=["res://.godot/imported/babyufo.png-abcd7c90121503391425112c8d8bb664.ctex"]
 
 [params]
 

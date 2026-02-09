@@ -1,36 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmst7uq7pomeu"]
+[gd_scene format=3 uid="uid://bmst7uq7pomeu"]
 
-[ext_resource type="Script" path="res://enemies/2/enemy_2.gd" id="1_jugo2"]
+[ext_resource type="Script" uid="uid://cxrhrjhsy8p7t" path="res://enemies/2/enemy_2.gd" id="1_jugo2"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_b4vra"]
-[ext_resource type="Texture2D" uid="uid://k6e45yfby80" path="res://enemies/2/UFO Enemy.png" id="2_jugo2"]
+[ext_resource type="Texture2D" uid="uid://l2mr7f8e6na8" path="res://enemies/2/babyufo.png" id="3_b4vra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
 radius = 17.4642
 
-[node name="enemy2" type="CharacterBody2D"]
+[node name="enemy2" type="CharacterBody2D" unique_id=152885031]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_jugo2")
 
-[node name="Enemy" type="AudioStreamPlayer" parent="."]
+[node name="Enemy" type="AudioStreamPlayer" parent="." unique_id=568181298]
 stream = ExtResource("2_b4vra")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=197109749]
 shape = SubResource("RectangleShape2D_4gyqm")
 debug_color = Color(0.830558, 0.393539, 0, 0.419608)
 
-[node name="bullet_detector" type="Area2D" parent="."]
+[node name="bullet_detector" type="Area2D" parent="." unique_id=1526643928]
 collision_layer = 0
 collision_mask = 2
 
-[node name="detector_col" type="CollisionShape2D" parent="bullet_detector"]
+[node name="detector_col" type="CollisionShape2D" parent="bullet_detector" unique_id=98552596]
 shape = SubResource("CircleShape2D_qi2p4")
 debug_color = Color(0.909804, 0, 0.729412, 0.258824)
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.21875, 2.21875)
-texture = ExtResource("2_jugo2")
+[node name="Babyufo" type="Sprite2D" parent="." unique_id=656390835]
+position = Vector2(-5.9604645e-08, -5.0000005)
+scale = Vector2(0.092285156, 0.092285156)
+texture = ExtResource("3_b4vra")
 
 [connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
