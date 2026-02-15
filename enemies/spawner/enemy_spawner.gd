@@ -86,7 +86,6 @@ func spawn_enemy(type, mod):
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
-	print(wave_num)
 	if left <= 0:
 		next_wave()
 	if $Timer.is_stopped():
