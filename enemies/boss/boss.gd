@@ -38,5 +38,5 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_detector_body_entered(body: Node2D) -> void:
 	damage()
 	
-	velocity -= (body.velocity/2).rotated(PI)
+	#velocity -= (body.velocity/2).rotated(PI)   #boss knockback (We dont want that)
 	body.queue_free()
