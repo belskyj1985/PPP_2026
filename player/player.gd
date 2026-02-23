@@ -101,7 +101,7 @@ var done = false
 var dir :String = "D"
 func play_anims():
 	
-	animator.offset.y = lerpf(animator.offset.y, 0, 0.1)
+	animator.offset.y = lerpf(animator.offset.y, 0, 0.05)
 	if (sign(angle_to_mouse) == 1 && angle_to_mouse > PI/4) || (sign(angle_to_mouse) == -1 && angle_to_mouse < -5*PI/4):
 		dir = "R"
 		offset = Vector2(60,-20)
@@ -117,7 +117,7 @@ func play_anims():
 	
 	if input_vector != Vector2.ZERO:
 		if animator.frame%2 == 0 && animator.frame_progress < 0.1:
-			animator.offset.y = -30
+			animator.offset.y = -40
 		animator.play("walk" + dir)
 	else:
 		animator.play("stand" + dir)

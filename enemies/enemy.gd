@@ -21,6 +21,7 @@ func move():
 		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd*1.5,acc)
 	#position.move_toward(player.position, spd)
 	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D.flip_h = (sign(velocity.x) == -1)
 var dead = false
 func damage():
 	$Enemy.play()

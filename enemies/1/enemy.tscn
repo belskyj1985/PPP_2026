@@ -1,51 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgd1ib8tm8mio"]
+[gd_scene format=3 uid="uid://dgd1ib8tm8mio"]
 
 [ext_resource type="Script" uid="uid://cmkjjlml40h62" path="res://enemies/enemy.gd" id="1_vlw6h"]
-[ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="2_8kyjj"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_gg5xc"]
 [ext_resource type="PackedScene" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
+[ext_resource type="Texture2D" uid="uid://dgyurvsd8m3v7" path="res://enemies/1/frame0000.png" id="4_gg5xc"]
+[ext_resource type="Texture2D" uid="uid://b1tmyaw5ny4gn" path="res://enemies/1/frame0001.png" id="5_ttnyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
-atlas = ExtResource("2_8kyjj")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
-atlas = ExtResource("2_8kyjj")
-region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epg4t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qi2p4")
+"texture": ExtResource("4_gg5xc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iifgy")
+"texture": ExtResource("5_ttnyg")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" unique_id=246235586]
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_vlw6h")
 
-[node name="Enemy" type="AudioStreamPlayer" parent="."]
+[node name="Enemy" type="AudioStreamPlayer" parent="." unique_id=534991864]
 stream = ExtResource("2_gg5xc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=751319139]
 shape = SubResource("RectangleShape2D_4gyqm")
 debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
 
-[node name="bullet_detector" parent="." instance=ExtResource("2_gxu15")]
+[node name="bullet_detector" parent="." unique_id=632613109 instance=ExtResource("2_gxu15")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -1.1920929e-07)
-scale = Vector2(1.2734375, 1.2734375)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1399867699]
+position = Vector2(3, -3)
+scale = Vector2(0.023, 0.023)
 sprite_frames = SubResource("SpriteFrames_epg4t")
 animation = &"walk"
 frame_progress = 0.8802136
