@@ -32,7 +32,7 @@ stream = ExtResource("2_gg5xc")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=751319139]
 shape = SubResource("RectangleShape2D_4gyqm")
-debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
+debug_color = Color(0.830558, 0.393539, 0, 0.419608)
 
 [node name="bullet_detector" parent="." unique_id=632613109 instance=ExtResource("2_gxu15")]
 
@@ -41,7 +41,7 @@ position = Vector2(3, -3)
 scale = Vector2(0.023, 0.023)
 sprite_frames = SubResource("SpriteFrames_epg4t")
 animation = &"walk"
-frame_progress = 0.8802136
+frame_progress = 0.880214
 
 [connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
 

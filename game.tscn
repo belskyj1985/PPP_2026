@@ -27,7 +27,7 @@ font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
 font = ExtResource("9_hve3p")
-font_size = 56
+font_size = 50
 
 [node name="world" type="Node2D" unique_id=1901021811]
 script = ExtResource("1_eow3j")
@@ -126,7 +126,7 @@ offset_left = 11.0
 offset_top = 13.0
 offset_right = 339.0
 offset_bottom = 64.0
-text = "+20 Damage"
+text = "+25 Damage"
 label_settings = SubResource("LabelSettings_mfdv2")
 
 [node name="DamageIcon" type="Sprite2D" parent="UI/Level up menu/Button" unique_id=1582909200]
@@ -148,7 +148,7 @@ offset_left = 13.0
 offset_top = 3.0
 offset_right = 391.0
 offset_bottom = 74.0
-text = "+50 Speed"
+text = "+60 Speed"
 label_settings = SubResource("LabelSettings_lc2xo")
 
 [node name="SpeedIcon_png" type="Sprite2D" parent="UI/Level up menu/Button2" unique_id=606301012]
@@ -168,9 +168,9 @@ offset_bottom = 564.0
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 336.0
+offset_right = 372.0
 offset_bottom = 64.0
-text = "+1 Fire Rate"
+text = "+0.6 Fire Rate"
 label_settings = SubResource("LabelSettings_iotsf")
 
 [node name="FireRateIcon" type="Sprite2D" parent="UI/Level up menu/Button3" unique_id=1425165264]

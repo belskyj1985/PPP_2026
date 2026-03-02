@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xdqcimuictic"]
 
-[ext_resource type="Script" uid="uid://isuqf43qkdvt" path="res://enemies/1b/enemy_1b.gd" id="1_20vqa"]
-[ext_resource type="PackedScene" path="res://enemies/bullet_detector.tscn" id="2_jj2kl"]
+[ext_resource type="Script" path="res://enemies/1b/enemy_1b.gd" id="1_20vqa"]
+[ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_jj2kl"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_ng1vl"]
 [ext_resource type="Shader" uid="uid://c4ctjgcl3oa0t" path="res://map/hue_shift.gdshader" id="4_pdf4b"]
 [ext_resource type="Texture2D" uid="uid://dgyurvsd8m3v7" path="res://enemies/1/frame0000.png" id="5_21tq0"]

@@ -7,6 +7,8 @@ var mod = 1
 var acc = 20
 
 func _ready() -> void:
+	Gamestate.enemies.append(self) #register that john
+	add_to_group("enemies")
 	health *= mod
 	dmg *= mod
 	spd *= mod
@@ -36,5 +38,5 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_detector_body_entered(body: Node2D) -> void:
 	damage()
 	
-	velocity -= (body.velocity/2).rotated(PI)
+	#velocity -= (body.velocity/2).rotated(PI)   #boss knockback (We dont want that)
 	body.queue_free()

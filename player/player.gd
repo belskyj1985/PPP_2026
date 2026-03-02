@@ -24,6 +24,10 @@ var left : bool = false
 @onready var gun_sprite = $Gun
 @onready var shot_timer = $shoot_timer
 @onready var reticle: CompressedTexture2D = preload("res://player/ReticleResize2.png")
+@onready var indicator: Sprite2D = $EnemyIndicator
+@export var indicator_radius := 30.0
+@onready var indicator_base_scale := indicator.scale
+
 
 #state machine to execute certain functions when the player is in a matching state
 enum state_enum {
@@ -182,8 +186,50 @@ func _physics_process(delta: float) -> void:
 			move()
 		state_enum.dead:
 			dead()
+	
+	update_enemy_indicator()
+
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	take_damage(body.dmg,0.4,body.velocity)
 	
+
+func get_closest_enemy() -> Node2D:
+	var closest: Node2D = null
+	var closest_dist := INF
+	
+	for e in Gamestate.enemies:
+		if !is_instance_valid(e):
+			continue
+		
+		var d = global_position.distance_to(e.global_position)
+		if d < closest_dist:
+			closest_dist = d
+			closest = e
+	
+	return closest
+
+func update_enemy_indicator():
+	var enemy = get_closest_enemy()
+	
+	if enemy == null:
+		indicator.visible = false
+		return
+	
+	indicator.visible = true
+	
+	# Direction from player to enemy
+	var dir = (enemy.global_position - global_position).normalized()
+	var dist = global_position.distance_to(enemy.global_position)
+	var scale_mult = clamp(1.3 - dist / 600.0, 0.9, 1.5)
+	indicator.scale = indicator_base_scale * scale_mult
+	# Place indicator on a circle around the player
+	indicator.position = dir * indicator_radius
+	
+	# Rotate arrow to face enemy
+	indicator.rotation = lerp_angle(
+		indicator.rotation,
+		dir.angle() + PI/2,
+		0.2
+	)

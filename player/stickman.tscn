@@ -221,7 +221,7 @@ animation = &"walkD"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835315690]
 shape = SubResource("RectangleShape2D_heo7t")
-debug_color = Color(0, 0.6, 0.69803923, 0.14509805)
+debug_color = Color(0, 0.6, 0.698039, 0.145098)
 
 [node name="invulnerablility" type="Timer" parent="." unique_id=1241054885]
 one_shot = true
