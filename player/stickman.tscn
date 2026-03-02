@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c8onirx61oxjm" path="res://player/sprites/frame0011.png" id="11_tgnjw"]
 [ext_resource type="Texture2D" uid="uid://cn706wib2hpf7" path="res://player/sprites/frame0006.png" id="16_4k0up"]
 [ext_resource type="Texture2D" uid="uid://dq516eurpvdlk" path="res://player/sprites/frame0008.png" id="17_7sp6s"]
+[ext_resource type="Texture2D" uid="uid://cqsyi6gnkfpfq" path="res://red indicator png.png" id="19_obywo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfhct"]
 load_path = "res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
@@ -246,6 +247,11 @@ shape = SubResource("RectangleShape2D_xfhct")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=303405414]
 position = Vector2(0, 18.5)
 scale = Vector2(1, 19.5)
+
+[node name="EnemyIndicator" type="Sprite2D" parent="." unique_id=655193636]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("19_obywo")
+offset = Vector2(0, -1200.98)
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
