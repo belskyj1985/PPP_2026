@@ -15,9 +15,17 @@ func _ready() -> void:
 
 
 func move():
-	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
+	if sign(velocity.y) != sign((Gamestate.player.global_position - global_position).y) || sign(velocity.x) != sign((Gamestate.player.global_position - global_position).x):
+		acc = 20
+	else:
+		acc = 20 / (0.0001 * (Gamestate.player.global_position - global_position).length_squared())
+	if global_position.distance_squared_to(Gamestate.player.global_position) < 100**2:
+		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
+	else:
+		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd*1.5,acc)
 	#position.move_toward(player.position, spd)
 	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D.flip_h = (sign(velocity.x) == -1)
 var dead = false
 func damage():
 	

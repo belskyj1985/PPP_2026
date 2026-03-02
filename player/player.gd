@@ -11,7 +11,7 @@ var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 50
 var sht_spd = 3
-
+var left : bool = false
 
 #define nodes on ready so they load in time
 @onready var shootSound: AudioStreamPlayer = $Shoot
@@ -54,15 +54,17 @@ func do_movement():
 		velocity = velocity.move_toward(Vector2(0,0),FRICTION)
 	move_and_slide()
 var bullet_size = 1.0
+var offset :Vector2 = Vector2(60,-20)
 func shoot():
 	if !$"..".paused:
 		if shot_timer.is_stopped() == true:
 			shootSound.play()
 			var instance = proj.instantiate()
 			instance.scale = Vector2(bullet_size, bullet_size)
-			instance.dir = angle_to_mouse
-			instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
-			instance.spawnRot = angle_to_mouse
+			instance.dir = (global_position + offset - mouse_pos).angle() - PI/2
+			instance.spawnPos = global_position + offset
+			instance.spawnRot = (global_position + offset - mouse_pos).angle() - PI/2
+			
 			main.add_child.call_deferred(instance)
 			shot_timer.start()
 
@@ -100,12 +102,29 @@ func do_debug_col(): #displays when the player is invulnerable
 	else:
 		$CollisionShape2D.debug_color = Color("CHARTREUSE", 0.41)
 var done = false
+var dir :String = "D"
 func play_anims():
-	animator.flip_h = mouse_pos.x < global_position.x
+	
+	animator.offset.y = lerpf(animator.offset.y, 0, 0.05)
+	if (sign(angle_to_mouse) == 1 && angle_to_mouse > PI/4) || (sign(angle_to_mouse) == -1 && angle_to_mouse < -5*PI/4):
+		dir = "R"
+		offset = Vector2(60,-20)
+	if angle_to_mouse > -PI/4 && angle_to_mouse < PI/4:
+		dir = "U"
+		offset = Vector2(0,-20)
+	if angle_to_mouse < -3*PI/4 && angle_to_mouse > -5*PI/4:
+		dir = "D"
+		offset = Vector2(0,-15)
+	if angle_to_mouse < -PI/4 && angle_to_mouse > -3*PI/4:
+		dir = "L"
+		offset = Vector2(-60,-20)
+	
 	if input_vector != Vector2.ZERO:
-		animator.play("walk")
+		if animator.frame%2 == 0 && animator.frame_progress < 0.1:
+			animator.offset.y = -40
+		animator.play("walk" + dir)
 	else:
-		animator.play("stand")
+		animator.play("stand" + dir)
 	
 	if mouse_pos.x < global_position.x:
 		gun_sprite.rotation = angle_to_mouse - PI/2
