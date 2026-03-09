@@ -2,9 +2,10 @@ extends CharacterBody2D
 @export var health := 20.0
 @export var dmg := 20.0
 @export var spd := 40.0
-@onready var modulate0 = $AnimatedSprite2D.modulate
+@onready var modulate0 = $Babyufo.modulate
 var mod = 1
 var acc = 20
+@onready var babyufo: Sprite2D = $Babyufo
 
 func _ready() -> void:
 	Gamestate.enemies.append(self) #register that john
@@ -27,9 +28,9 @@ func damage():
 			Gamestate.spawner.enemy_killed()
 			queue_free()
 			dead = true
-	$AnimatedSprite2D.modulate = Color.RED
+	$Babyufo.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color.WHITE
+	$Babyufo.modulate = Color.WHITE
 	
 
 func _physics_process(delta: float) -> void:
