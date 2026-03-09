@@ -9,25 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://UI/ui.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://df0kb7n1xlcy" path="res://enemies/spawner/enemy_spawner.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://eqf0f3g617gs" path="res://UI/pause_menu.tscn" id="7_j5wjh"]
-[ext_resource type="Texture2D" uid="uid://mqmwvm68qfum" path="res://player/dashicon.png" id="8_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://dn45uryq8gvw6" path="res://UI/4x4whitesquare.png" id="8_vef74"]
-[ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="9_hve3p"]
+[ext_resource type="Texture2D" uid="uid://1angspbl8au2" path="res://UI/new_dash_icon.png" id="10_80cx4"]
 [ext_resource type="Texture2D" uid="uid://cusxjvbej5145" path="res://player/bullet/New Piskel-1.png.png" id="10_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://tm8bahlpv2lp" path="res://menus/fire_rate_icon.png" id="10_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://cmwb7c72ar44s" path="res://menus/speed_icon.png.png" id="11_215e1"]
+[ext_resource type="FontFile" uid="uid://bw7x30op1jitg" path="res://UI/Vipnagorgialla Bd.otf" id="12_80cx4"]
 [ext_resource type="Texture2D" uid="uid://cbo17un66d3sn" path="res://map/space.png" id="16_80cx4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mfdv2"]
-font = ExtResource("9_hve3p")
-font_size = 63
+font = ExtResource("12_80cx4")
+font_size = 37
 
 [sub_resource type="LabelSettings" id="LabelSettings_lc2xo"]
-font = ExtResource("9_hve3p")
-font_size = 70
+font = ExtResource("12_80cx4")
+font_size = 44
 
 [sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
-font = ExtResource("9_hve3p")
-font_size = 50
+font = ExtResource("12_80cx4")
+font_size = 35
 
 [node name="world" type="Node2D" unique_id=1901021811]
 script = ExtResource("1_eow3j")
@@ -69,17 +69,17 @@ script = ExtResource("2_e2o6t")
 [node name="UI" parent="." unique_id=709910535 instance=ExtResource("4_fc0e3")]
 follow_viewport_enabled = false
 
-[node name="Wave" parent="UI" index="4"]
-offset_left = 516.0
+[node name="Wave" parent="UI" index="4" unique_id=1776566264]
+offset_left = 508.0
 offset_top = -1.0
-offset_right = 841.0
+offset_right = 833.0
 offset_bottom = 63.0
 
-[node name="enemies" parent="UI" index="5"]
-offset_left = 652.0
-offset_top = 5.0
-offset_right = 977.0
-offset_bottom = 69.0
+[node name="enemies" parent="UI" index="5" unique_id=2080722370]
+offset_left = 605.0
+offset_top = 1.0
+offset_right = 930.0
+offset_bottom = 65.0
 
 [node name="pause_menu" parent="UI" unique_id=1232841216 instance=ExtResource("7_j5wjh")]
 offset_left = -1.0
@@ -88,15 +88,15 @@ offset_right = 1148.0
 offset_bottom = 648.0
 
 [node name="Dashicon" type="Sprite2D" parent="UI" unique_id=371067841]
-position = Vector2(39, 104.99999)
-scale = Vector2(3.590909, 3.5871205)
-texture = ExtResource("8_j5wjh")
+position = Vector2(38.535995, 100.506004)
+scale = Vector2(0.0375625, 0.0375625)
+texture = ExtResource("10_80cx4")
 
 [node name="Cooldown" type="TextureProgressBar" parent="UI/Dashicon" unique_id=1285754423]
-offset_left = -10.582279
-offset_top = -11.708553
-offset_right = 10.582277
-offset_bottom = 11.708555
+offset_left = -1009.8245
+offset_top = -1010.35077
+offset_right = 1009.8245
+offset_bottom = 1010.35077
 step = 0.01
 fill_mode = 3
 nine_patch_stretch = true
@@ -146,8 +146,8 @@ offset_bottom = 564.0
 layout_mode = 0
 offset_left = 13.0
 offset_top = 3.0
-offset_right = 391.0
-offset_bottom = 74.0
+offset_right = 504.0
+offset_bottom = 88.0
 text = "+60 Speed"
 label_settings = SubResource("LabelSettings_lc2xo")
 
@@ -168,8 +168,8 @@ offset_bottom = 564.0
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 372.0
-offset_bottom = 64.0
+offset_right = 465.0
+offset_bottom = 69.0
 text = "+0.6 Fire Rate"
 label_settings = SubResource("LabelSettings_iotsf")
 

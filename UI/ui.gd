@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("stats"):
 		stats_menu.position.x = lerp(stats_menu.position.x, 53.0, 0.15)
 	else:
-		stats_menu.position.x = lerp(stats_menu.position.x, -227.0, 0.15)
+		stats_menu.position.x = lerp(stats_menu.position.x, -290.0, 0.15)
 	
 	if on_cooldown:
 		cooldown.value = timer.time_left

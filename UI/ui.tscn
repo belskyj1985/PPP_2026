@@ -1,56 +1,58 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3a6idn7jdtb"]
+[gd_scene format=3 uid="uid://c3a6idn7jdtb"]
 
 [ext_resource type="Script" uid="uid://domlgsimnvui" path="res://UI/ui.gd" id="1_fyqef"]
-[ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="2_m6e0p"]
+[ext_resource type="FontFile" uid="uid://b21biqmgc8re1" path="res://UI/ZTNature-Bold.otf" id="2_e6gg6"]
+[ext_resource type="FontFile" uid="uid://bw7x30op1jitg" path="res://UI/Vipnagorgialla Bd.otf" id="3_hat8c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
-font = ExtResource("2_m6e0p")
+font = ExtResource("2_e6gg6")
 font_size = 32
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_27fn8"]
-font = ExtResource("2_m6e0p")
-font_size = 32
+font = ExtResource("2_e6gg6")
+font_size = 21
 
 [sub_resource type="LabelSettings" id="LabelSettings_ibotj"]
-font = ExtResource("2_m6e0p")
+font = ExtResource("2_e6gg6")
+font_size = 13
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6e0p"]
-font = ExtResource("2_m6e0p")
-font_size = 85
+font = ExtResource("3_hat8c")
+font_size = 56
 
 [sub_resource type="LabelSettings" id="LabelSettings_nltto"]
-font = ExtResource("2_m6e0p")
+font = ExtResource("2_e6gg6")
 font_size = 32
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=526031351]
 follow_viewport_enabled = true
 script = ExtResource("1_fyqef")
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=140850260]
 color = Color(0.3070968, 0, 0.09344535, 1)
 polygon = PackedVector2Array(0, 0, 0, 62, 467, 62, 467, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1438106583]
 color = Color(0.8627451, 0.101960786, 0.26666668, 1)
 polygon = PackedVector2Array(463, 0, 463, 58, 0, 58, 0, 0)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=253134898]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="stats_menu" type="Node2D" parent="."]
-position = Vector2(-227, 505)
+[node name="stats_menu" type="Node2D" parent="." unique_id=320886934]
+position = Vector2(-227, 485)
 
-[node name="Polygon2D" type="Polygon2D" parent="stats_menu"]
+[node name="Polygon2D" type="Polygon2D" parent="stats_menu" unique_id=1473891586]
 modulate = Color(1, 1, 1, 0.39215687)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-52, 0, 223, 0, 223, 141, -52, 141)
+polygon = PackedVector2Array(-52, 0, 275, 0, 275, 294, -52, 294)
 
-[node name="RichTextLabel" type="Label" parent="stats_menu"]
+[node name="RichTextLabel" type="Label" parent="stats_menu" unique_id=1905300596]
 offset_left = -47.0
 offset_right = -7.0
 offset_bottom = 40.0
@@ -60,55 +62,54 @@ DAMAGE: XX
 FIRE RATE: X/sec"
 label_settings = SubResource("LabelSettings_n5ude")
 
-[node name="Wave" type="Label" parent="."]
+[node name="Wave" type="Label" parent="." unique_id=1776566264]
 offset_top = 60.0
 offset_right = 325.0
 offset_bottom = 124.0
 text = "Wave: xx"
 label_settings = SubResource("LabelSettings_27fn8")
 
-[node name="enemies" type="Label" parent="."]
-offset_left = 111.0
-offset_top = 66.0
-offset_right = 436.0
-offset_bottom = 130.0
+[node name="enemies" type="Label" parent="." unique_id=2080722370]
+offset_left = 106.0
+offset_top = 60.0
+offset_right = 431.0
+offset_bottom = 124.0
 text = "enemies left: xx"
 label_settings = SubResource("LabelSettings_ibotj")
 
-[node name="death_screen" type="Node2D" parent="."]
+[node name="death_screen" type="Node2D" parent="." unique_id=1076726930]
 position = Vector2(232, -273)
 
-[node name="Button" type="Button" parent="death_screen"]
+[node name="Button" type="Button" parent="death_screen" unique_id=335717966]
 offset_left = 132.0
 offset_top = -76.0
 offset_right = 554.0
 offset_bottom = -3.0
 
-[node name="Label" type="Label" parent="death_screen/Button"]
+[node name="Label" type="Label" parent="death_screen/Button" unique_id=175090639]
 layout_mode = 0
-offset_left = 115.0
-offset_top = -13.0
-offset_right = 313.0
-offset_bottom = 73.0
+offset_left = 101.0
+offset_right = 311.0
+offset_bottom = 86.0
 text = "Retry"
 label_settings = SubResource("LabelSettings_m6e0p")
 
-[node name="Button2" type="Button" parent="death_screen"]
+[node name="Button2" type="Button" parent="death_screen" unique_id=638536426]
 offset_left = 131.0
 offset_top = 9.0
 offset_right = 553.0
 offset_bottom = 82.0
 
-[node name="Label" type="Label" parent="death_screen/Button2"]
+[node name="Label" type="Label" parent="death_screen/Button2" unique_id=1856234620]
 layout_mode = 0
-offset_left = 33.0
-offset_top = -7.0
-offset_right = 394.0
-offset_bottom = 79.0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 414.0
+offset_bottom = 87.0
 text = "Main Menu"
 label_settings = SubResource("LabelSettings_m6e0p")
 
-[node name="health" type="Label" parent="."]
+[node name="health" type="Label" parent="." unique_id=60121239]
 offset_left = 4.0
 offset_top = -2.0
 offset_right = 44.0
