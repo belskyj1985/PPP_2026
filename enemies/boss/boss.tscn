@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ckd5axu8exlak" path="res://enemies/boss/Sprite-0001.png" id="2_n18ml"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_r4ron"]
 [ext_resource type="Texture2D" uid="uid://cycun1eqvmmtx" path="res://enemies/boss/space crab spritesheet.png" id="3_8d0e3"]
+[ext_resource type="Texture2D" uid="uid://xdoopc8m0e5p" path="res://enemies/boss/new space crab walking 2.png" id="3_opohk"]
+[ext_resource type="Texture2D" uid="uid://dsu8yhmw6ic0y" path="res://enemies/boss/new space crab walking.png" id="4_auiwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(270, 154)
@@ -39,13 +41,24 @@ region = Rect2(192, 0, 64, 99)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_opohk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_auiwu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vsebo")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_opohk")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"walk_horrible",
 "speed": 7.0
 }, {
 "frames": [{
@@ -89,10 +102,10 @@ shape = SubResource("RectangleShape2D_n18ml")
 debug_color = Color(0.909804, 0, 0.729412, 0.258824)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=718264339]
-position = Vector2(-3, -2)
-scale = Vector2(1.2705697, 1.2705697)
+position = Vector2(-6, -3)
+scale = Vector2(0.22449505, 0.22449505)
 sprite_frames = SubResource("SpriteFrames_r4ron")
 animation = &"walk"
-frame_progress = 0.30601448
+frame_progress = 0.635714
 
 [connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
