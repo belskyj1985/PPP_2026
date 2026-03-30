@@ -2,7 +2,7 @@ extends CharacterBody2D
 @export var health := 30.0
 @export var dmg := 10.0
 @export var spd := 10.0
-@onready var modulate0 = $Babyufo.modulate
+#@onready var modulate0 = $Babyufo.modulate
 var mod = 1.0
 var acc = 20
 
