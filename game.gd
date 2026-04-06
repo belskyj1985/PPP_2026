@@ -42,7 +42,7 @@ func _on_button_pressed() -> void: #dmg
 func _on_button_2_pressed() -> void: #spd
 	if leveling:
 		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed + 60,Gamestate.player.dmg + 5,Gamestate.player.sht_spd)
-		Gamestate.player.health += 60 #Adds health
+		Gamestate.player.health += 150 #Adds health
 		Gamestate.player.health = clamp(Gamestate.player.health, 10, Gamestate.player.max_hp)
 		$UI.update_ui("hp",Gamestate.player.health)
 		leveling = false
@@ -50,7 +50,7 @@ func _on_button_2_pressed() -> void: #spd
 func _on_button_3_pressed() -> void: #ss
 	if leveling:
 		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed,Gamestate.player.dmg + 5,Gamestate.player.sht_spd + 0.5)
-		Gamestate.player.health += 60 #Adds health
+		Gamestate.player.health += 150 #Adds health
 		Gamestate.player.health = clamp(Gamestate.player.health, 10, Gamestate.player.max_hp)
 		$UI.update_ui("hp",Gamestate.player.health)
 		leveling = false
