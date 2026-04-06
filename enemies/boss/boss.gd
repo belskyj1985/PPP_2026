@@ -1,7 +1,7 @@
 extends CharacterBody2D
-@export var health := 1000.0
-@export var dmg := 35.0
-@export var spd := 50.0
+@export var health := 2000.0
+@export var dmg := 40.0
+@export var spd := 60.0
 @onready var modulate0 = $AnimatedSprite2D.modulate
 var mod = 1
 var acc = 20

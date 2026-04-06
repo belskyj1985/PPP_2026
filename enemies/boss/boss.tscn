@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ckd5axu8exlak" path="res://enemies/boss/Sprite-0001.png" id="2_n18ml"]
 [ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_r4ron"]
 [ext_resource type="Texture2D" uid="uid://cycun1eqvmmtx" path="res://enemies/boss/space crab spritesheet.png" id="3_8d0e3"]
-[ext_resource type="Texture2D" uid="uid://xdoopc8m0e5p" path="res://enemies/boss/new space crab walking 2.png" id="3_opohk"]
-[ext_resource type="Texture2D" uid="uid://dsu8yhmw6ic0y" path="res://enemies/boss/new space crab walking.png" id="4_auiwu"]
+[ext_resource type="Texture2D" uid="uid://d8513e1v4w37" path="res://enemies/boss/new space crab walking 2.png" id="3_opohk"]
+[ext_resource type="Texture2D" uid="uid://cjtf38w536oa2" path="res://enemies/boss/new space crab walking.png" id="4_auiwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(270, 154)

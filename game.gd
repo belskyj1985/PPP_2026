@@ -34,7 +34,7 @@ var hp_add = 50
 func _on_button_pressed() -> void: #dmg
 	if leveling:
 		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed,Gamestate.player.dmg + 30,Gamestate.player.sht_spd)
-		Gamestate.player.health += 60 #Adds health
+		Gamestate.player.health += 150 #Adds health
 		Gamestate.player.health = clamp(Gamestate.player.health, 10, Gamestate.player.max_hp)
 		$UI.update_ui("hp",Gamestate.player.health)
 		leveling = false
