@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @export var SPEED = 400
+@onready var particles: GPUParticles2D = $GPUParticles2D
 
 var dir : float
 var spawnPos : Vector2
